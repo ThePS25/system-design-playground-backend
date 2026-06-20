@@ -4,7 +4,9 @@ services:
     runtime: node
     plan: free
     region: oregon
-    buildCommand: npm ci && npm run build
+    # Repo root must be the backend folder (package.json at top level).
+    # In Render dashboard: Root Directory = leave BLANK. Do NOT set to "src".
+    buildCommand: npm ci --include=dev && npm run build
     startCommand: npm start
     healthCheckPath: /api/v1/health
     envVars:

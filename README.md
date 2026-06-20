@@ -82,9 +82,11 @@ Templates: Twitter, WhatsApp, Netflix, YouTube, Instagram, Uber, URL Shortener, 
 ## Production Deployment (Render)
 
 1. Connect this repo to [Render](https://render.com) (Blueprint uses `render.yaml`).
-2. Set `MONGODB_URI` and `CORS_ORIGIN` in the Render dashboard.
-3. After first deploy, seed the database: `npm run seed:prod` (Render Shell or locally against Atlas).
-4. Health check: `GET /api/v1/health` → `"database": "connected"`.
+2. **Root Directory: leave blank** — do not set to `src`.
+3. Set `MONGODB_URI` and `CORS_ORIGIN` in the Render dashboard.
+4. Build command: `npm ci --include=dev && npm run build`
+5. After first deploy, seed the database: `npm run seed:prod` (Render Shell or locally against Atlas).
+6. Health check: `GET /api/v1/health` → `"database": "connected"`.
 
 Full step-by-step guide: [`../docs/DEPLOYMENT.md`](../docs/DEPLOYMENT.md)
 
