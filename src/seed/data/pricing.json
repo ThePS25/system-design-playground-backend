@@ -1,0 +1,50 @@
+{
+  "application-server": {
+    "unitType": "instance",
+    "unitPriceMonthly": 120,
+    "category": "compute",
+    "label": "Application Server"
+  },
+  "redis": {
+    "unitType": "node",
+    "unitPriceMonthly": 150,
+    "category": "cache",
+    "label": "Redis Cluster"
+  },
+  "database": {
+    "unitType": "instance",
+    "unitPriceMonthly": 350,
+    "category": "database",
+    "label": "Database"
+  },
+  "cdn": {
+    "unitType": "tb",
+    "unitPriceMonthly": 85,
+    "category": "network",
+    "label": "CDN Bandwidth"
+  },
+  "load-balancer": {
+    "unitType": "instance",
+    "unitPriceMonthly": 25,
+    "category": "network",
+    "label": "Load Balancer"
+  },
+  "kafka": {
+    "unitType": "cluster",
+    "unitPriceMonthly": 400,
+    "category": "messaging",
+    "label": "Kafka Cluster"
+  },
+  "object-storage": {
+    "unitType": "tb",
+    "unitPriceMonthly": 23,
+    "category": "storage",
+    "label": "Object Storage"
+  },
+  "search-service": {
+    "unitType": "instance",
+    "unitPriceMonthly": 200,
+    "category": "search",
+    "label": "Search Service"
+  }
+}
