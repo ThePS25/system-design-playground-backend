@@ -4,11 +4,15 @@
   "type": "module",
   "description": "System Design Playground API",
   "main": "dist/server.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
     "seed": "tsx src/seed/index.ts",
+    "seed:prod": "node dist/seed/index.js",
     "lint": "eslint src --ext .ts"
   },
   "dependencies": {

@@ -1,14 +1,23 @@
 import express from 'express';
 import cors from 'cors';
-import { env } from './config/env.js';
+import { getCorsOptions } from './config/cors.js';
 import routes from './routes/index.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 
 export function createApp() {
   const app = express();
 
-  app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));
+  app.set('trust proxy', 1);
+  app.use(cors(getCorsOptions()));
   app.use(express.json({ limit: '2mb' }));
+
+  app.get('/', (_req, res) => {
+    res.json({
+      name: 'System Design Playground API',
+      version: '1.0.0',
+      health: '/api/v1/health',
+    });
+  });
 
   app.use('/api/v1', routes);
 

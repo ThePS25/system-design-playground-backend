@@ -36,7 +36,8 @@ curl http://localhost:4000/api/v1/challenges
 | `npm run dev` | Start dev server with hot reload |
 | `npm run build` | Compile TypeScript |
 | `npm start` | Run production build |
-| `npm run seed` | Seed MongoDB with components, templates, challenges |
+| `npm run seed` | Seed MongoDB (development) |
+| `npm run seed:prod` | Seed MongoDB (production build) |
 
 ## API Endpoints
 
@@ -71,16 +72,21 @@ Templates: Twitter, WhatsApp, Netflix, YouTube, Instagram, Uber, URL Shortener, 
 
 ## Environment Variables
 
-```
-PORT=4000
-MONGODB_URI=mongodb://localhost:27017/system-design-playground
-CORS_ORIGIN=http://localhost:5173
-NODE_ENV=development
-```
+| Variable | Description |
+|----------|-------------|
+| `PORT` | Server port (default `4000`; Render sets automatically) |
+| `MONGODB_URI` | MongoDB connection string |
+| `CORS_ORIGIN` | Allowed frontend origin(s), comma-separated |
+| `NODE_ENV` | `development` or `production` |
 
-## Deployment (Render)
+## Production Deployment (Render)
 
-See `render.yaml`. Set `MONGODB_URI` and `CORS_ORIGIN` in Render dashboard.
+1. Connect this repo to [Render](https://render.com) (Blueprint uses `render.yaml`).
+2. Set `MONGODB_URI` and `CORS_ORIGIN` in the Render dashboard.
+3. After first deploy, seed the database: `npm run seed:prod` (Render Shell or locally against Atlas).
+4. Health check: `GET /api/v1/health` → `"database": "connected"`.
+
+Full step-by-step guide: [`../docs/DEPLOYMENT.md`](../docs/DEPLOYMENT.md)
 
 ## Architecture
 

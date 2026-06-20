@@ -11,8 +11,8 @@ import { generalLimiter } from '../middleware/rateLimiter.js';
 
 const router = Router();
 
-router.use(generalLimiter);
 router.get('/health', healthCheck);
+router.use(generalLimiter);
 router.use('/templates', templateRoutes);
 router.use('/components', componentRoutes);
 router.use('/challenges', challengeRoutes);

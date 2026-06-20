@@ -2,8 +2,11 @@ services:
   - type: web
     name: system-design-playground-api
     runtime: node
-    buildCommand: npm install && npm run build
+    plan: free
+    region: oregon
+    buildCommand: npm ci && npm run build
     startCommand: npm start
+    healthCheckPath: /api/v1/health
     envVars:
       - key: NODE_ENV
         value: production
