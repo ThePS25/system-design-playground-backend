@@ -10,8 +10,9 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
+    "postbuild": "node scripts/copy-static-assets.mjs && node scripts/verify-build.mjs",
     "prestart": "node scripts/verify-build.mjs",
-    "start": "node dist/server.js",
+    "start": "node scripts/start-server.mjs",
     "seed": "tsx src/seed/index.ts",
     "seed:prod": "node dist/seed/index.js",
     "lint": "eslint src --ext .ts"
