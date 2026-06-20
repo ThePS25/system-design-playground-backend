@@ -13,7 +13,7 @@ export function createApp() {
 
   app.get('/', (_req, res) => {
     res.json({
-      name: 'System Design Playground API',
+      name: 'DesignScape API',
       version: '1.0.0',
       health: '/api/v1/health',
     });

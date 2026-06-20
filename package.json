@@ -2,7 +2,7 @@
   "name": "system-design-playground-backend",
   "version": "1.0.0",
   "type": "module",
-  "description": "System Design Playground API",
+  "description": "DesignScape API",
   "main": "dist/server.js",
   "engines": {
     "node": ">=20"

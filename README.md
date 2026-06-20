@@ -1,4 +1,4 @@
-# System Design Playground — Backend
+# DesignScape — Backend
 
 Node.js + Express + TypeScript API.
 
