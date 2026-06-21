@@ -12,9 +12,14 @@ const envSchema = z.object({
 
 const parsed = envSchema.parse(process.env);
 
+/** Browsers send Origin without a trailing slash; normalize env values to match. */
+function normalizeOrigin(origin: string): string {
+  return origin.trim().replace(/\/+$/, '');
+}
+
 export const env = {
   ...parsed,
   CORS_ORIGINS: parsed.CORS_ORIGIN.split(',')
-    .map((origin) => origin.trim())
+    .map(normalizeOrigin)
     .filter(Boolean),
 };

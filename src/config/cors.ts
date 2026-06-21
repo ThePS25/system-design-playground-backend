@@ -1,10 +1,20 @@
 import type { CorsOptions } from 'cors';
 import { env } from './env.js';
 
+function normalizeOrigin(origin: string): string {
+  return origin.replace(/\/+$/, '');
+}
+
 export function getCorsOptions(): CorsOptions {
   return {
     origin(origin, callback) {
-      if (!origin || env.CORS_ORIGINS.includes(origin)) {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      const normalized = normalizeOrigin(origin);
+      if (env.CORS_ORIGINS.includes(normalized)) {
         callback(null, true);
         return;
       }
